@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+{% block body %}
+ 
+ <h3>Working With Lattices</h3>
+ 
+ <p>A Lattice is essentially a simple container that can be used to deform and manipulate a more complex mesh in a non-destructive manner (i.e. a lattice can be used to seriously deform a mesh then, if the lattice is later removed, the mesh can automatically return to its original shape).</p> 
+ <p>In this module you will use a lattice to animate a cube that squashes and stretches.</p>
+ 
+ <p>First you will need to prepare the cube to work with a Lattice:</p>
+ 
+ <ol>
+ <li>If you have not done so already, set the current frame to 1 and press the 1 key to switch to Front View</li>
+ <li>Right click on the cube to select it. Press TAB to enter Edit Mode.</li>
+ <li>Press W to open the Specials menu, and select subdivide. This subdivides ("cuts in two" at the middle) all selected edges, adding necessary vertices, and subdividing accordingly the faces involved. This will make the cube more flexible and interesting to animate.
+ <li>Again, Press W, and select subdivide.</li>
+ </ol>
+ 
+ <h3>Create a Lattice</h3>
+ <p>To create a lattice, do the following:</p>
+ <ol>
+ <li>Press TAB to return to Object mode.</li>
+ <li>With your cursor over the 3D View Panel (in which the cube is visible) press SHIFT-A, and select "Lattice".</li>
+ </ol>
+
+ <p>The default Lattice looks just like a cube when first added except that it is just one Blender Unit (BU) wide whereas a mesh cube is 2 BU wide. When the Lattice is added, the window remains in Object Mode and the Lattice can be moved, resized and rotated like any other Blender Object.</p>
+
+
+Press G to move, S to scale
+Center the lattice on the cube and make it just a tiny bit larger than the cube
+So it completely surrounds the object (in this case, a subdivided cube)
+You may need to try out other views to get this right. (1,7,3)
+
+
+With the lattice selected, press the lattice icon
+Increase W to 3, cutting the lattice through the middle
+
+
+<h3>Connecting a Lattice to an Object</h3>
+
+<p>On its own, a Lattice serves no purpose whatsoever since it can't be seen in a rendered image. Its only use is to manipulate another object and so, to be useful, we need to associate another object with it. The current method for doing this is by applying a "Lattice Modifier" to a Blender object.</p>
+
+Select cube
+Click on wrench icon (Object Modifiers)
+From the Object menu select Lattice
+Now the cube has the lattice attached to it
+
+Now, when you select the lattice, go into edit mode, and manipulate the lattice, you will manipulate the object it's attached to as well.
+
+
+<h3>Creating Lattice Shape Keys</h3>
+You can save distorted versions of an object as <strong>shape keys</strong>. Shape keys simplify the process of animating complex objects. 
+
+To create shape keys for the cube, do the following:
+<ol>
+<li>In Object Mode, right click the lattice to select it.</li>
+<li>In the far right panel, click on the Object Data (grid) icon.</li>
+<li>Under the Shape Keys header, press the plus button to add a shape key to the lattice. This creates a Basis shape key that captures the cube's current, undistorted shape.</li>
+<li>Press the plus button again to add another shape key, "Key 1".</li>
+<li>Select Key 1 and use the text box below to rename it "Right"</li>
+<li>Press TAB to enter Edit mode.</li>
+<li>Rotate the top of the lattice to the right using the following commands:
+	<ul>
+	<li>Press . to make the 3D cursor the center of rotation (you should only need to do this once)</li>
+	<li>Click with the left mouse button to move the 3D cursor.
+	<li>Press A to select/deselect all</li>
+	<li>Press B while clicking and dragging with the left mouse button to box select</li>
+	<li>Press G to move vertexes of the lattice.</li>
+	<li>Press R to rotate groups of vertexes within the lattice.</li>
+	</ul>
+<li>When you're done, press TAB to return to Object Mode
+	<br>Note that when you return to Object Mode, the cube snaps back to the basis shape. That's because the value of the Right shape key is currently set to zero. If you select "Right" from the panel on the right and crank its value up you can see that the box deforms into the second shape you just made.</li>
+</ol>
+
+<p>Let's do that again.</p>
+
+<ol>
+<li>Ensure the value of the Right shape key is zero, and the lattice is in its basis shape.</li>
+<li>Under the Shape Keys header, press the plus button to add another shape key.</li>
+<li>Rename the new shape key "Left".</li>
+<li>Press TAB to enter Edit Mode.</li>
+<li>Rotate the top of the lattice to the left.</li>
+<li>Press TAB to return to Object Mode.</li>
+</ol>
+
+<p>One more time.</li>
+
+<ol>
+<li>Add another shape key.</li>
+<li>Rename the new shape key "Squish".</li>
+<li>Press TAB to enter Edit Mode.</li>
+<li>Move the 3D cursor to the middle of the lattice.</li>
+<li>Box select the lattice's middle three vertices.</li>
+<li>Press S, then click and drag with the left mouse button to scale.</li>
+<li>Move the 3D cursor to the bottom of the lattice.</li>
+<li>Select all the lattice's vertices.</li>
+<li>Click and drag with the middle mouse button to scale just along the Z (vertical) axis.</li>
+</ol>
+
+<p>You now have three shapes keys, plus the basis shape.</p>
+
+<h3>Animating With Shape Keys</h3>
+
+<p>Next, you'll want to open up a new panel. To create a new panel at the bottom of the screen, click on the bottom left corner of the 3D View panel and drag upwards. Then, from the little icon menu at the bottom left corner of the new panel, select "Dope Sheet" to change the panel type.
+Finally, open the menu at the bottom of the panel that's currently labeled "Dope Sheet" and select "Shape Key Editor". At this point, you should see a list of shape keys and a timeline in the new panel.</p>
+
+<ol>
+<li>In a panel underneath the square are three labels: "Right", "Left", and "Squish". To the right of each of these labels is a little input area with the number "0.000" inside.
+	<br>Click inside the input area next to each of these labels, and drag to the right until the number inside goes to "1.000". Drag back to the left to reset the key shape value to 0.000.
+	</li>
+
+<li>To the right, there's a vertical green bar with the number 0 at the base. Hover your cursor over this area and press the right arrow key until the number next to the green bar is "15". You are now 15 frames into your animation.</li>
+
+<li>Change the value of Right to 1.000. </li>
+
+<li>Continue hovering your mouse over this panel and use the right arrow key to move the green bar forward to frame 30.</li>
+
+<li>Change the value of Right to 0.000. While you're here, slide the value of Left up a little and then back down to 0.000. This fixes the value of Left to 0.000 in this frame.</li>
+
+<li>Use the right arrow key to move the green bar forward to frame 45. </li>
+
+<li>Change the value of Left to 1.000.</li>
+
+<li>Move the green bar to frame 60.</li>
+
+<li>Change the value of Left to 0.000 and fix the value of Squish at 0.000.</li>
+
+<li>Move the green bar to frame 75.</li>
+
+<li>Change the value of Squish to 1.000.</li>
+
+<li>Move the green bar to frame 90.</li>
+
+<li>Change the value of Squish to 0.000.</li>
+</ol>
+
+<p>Press Alt-A to watch a preview of the animation. Press ESC to stop the preview.</p>
+
+
+<h3>Rendering Animations</h3>
+<p>To render your animation, click on the Render (camera) icon in the far right panel. Press the "Animation" button, and wait. Once your animation has finished rendering, look on the computer's desktop. There should be a movie file there titled 0001-0090.avi. This is the rendered version of your 3D animation. Double click the movie file to open and play it.</p>
+ 
+{% endblock %}

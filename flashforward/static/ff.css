@@ -1,0 +1,31 @@
+.steps {
+  width: 500px;
+  margin: 10px
+}
+ 
+ol {
+  color: #ccc;
+  list-style-type: none;
+  counter-reset: item
+}
+ 
+ol li {
+  position: relative;
+  margin-bottom: 20px;
+  font: 12px/1.5 Helvetica, sans-serif;
+  padding-left: 60px;
+  color: #555;
+  display: block
+}
+
+ol li:before
+{
+  font: bold italic 45px/1.5 Helvetica, Verdana, sans-serif;
+  content: counter(item) ". ";
+  counter-increment: item;
+  color: red;
+}
+ 
+span {
+  position: absolute;
+}

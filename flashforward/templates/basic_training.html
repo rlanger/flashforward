@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+
+<html>
+<head>
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+<!-- My CSS -->
+<link rel="stylesheet" href="../flashforward.css">
+  
+
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Basic Training</h1>
+
+<!--Select, move, set perspective-->
+<div id="basicnav">
+<p>On your right monitor is a virtual 3D scene that includes a cube, a light, and a camera.</p>
+<h3>Basic navigation</h3>
+<p>You can use the following techniques to adjust your view of the virtual scene:</p>
+<ul>
+<li>Press the middle mouse button and move the mouse to rotate the view</li>
+<li>Press <b>Shift</b> and the middle mouse button to pan the view</li>
+<li>Press <b>Control</b> and the middle mouse button to zoom the view</li>
+</ul>
+<p>Take a moment to experiment with these controls now.</p>
+</div>
+
+<div id="selecting">
+<h3>Selecting objects</h3>
+<p>Click on the cube with your right mouse button to select it. You will see it framed in an orangey-yellow outline.</p>
+<img src="Blender-2.5_cube_object_mode.PNG" />
+</div>
+
+<div id="manipulating">
+<h3>Manipulating objects</h3>
+<p>Press <b>Control</b> + <b>Space</b> to toggle the visibility of the manipulator. The manipulator can be used to changes the position, rotation, and size of an object.</p>
+
+<p>While the manipulator is visible, try the following:</p>
+<ul>
+<li>Select the position button (<img src="translate-button.png" />), then drag on any of the coloured lines of the manipulator with the left mouse button to move the camera in the corresponding direction. <br /><img src="Blender263ManipulatorTranslate.png" />
+</li>
+<li>Select the rotation button (<img src="rotate-button.png" />), then drag on any of the coloured lines of the manipulator with the left mouse button to move the camera in the corresponding direction.<br /><img src="Blender263ManipulatorRotate.png" /></li>
+<li>Select the scale button (<img src="scale-button.png" />), then drag on any of the coloured lines of the manipulator with the left mouse button to move the camera in the corresponding direction.<br /><img src="Blender263ManipulatorScale.png" /></li>
+</ul>
+</div>
+
+<!--<h3>Cheat sheet</h3>
+<p>At any time, you can review these instructions by clicking on the <a href="">cheat sheet</a> link at the top of the page.</p>-->
+
+</ul>
+
+<button id="nextButton">Really truly next</button>
+
+<form action="./ballbounce-ff.html">
+      <input type="submit" value="Next" class="pull-right btn btn-large btn-primary">
+    </form>
+
+<script type="application/dart" src="basic_training.dart"></script>
+
+</body>
+</html>
